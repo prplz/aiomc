@@ -1,0 +1,4 @@
+.idea/
+venv/
+__pychache__/
+aiomc/__pycache__/
