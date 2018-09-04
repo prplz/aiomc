@@ -11,6 +11,9 @@ PingResult = namedtuple('PingResult', ('json', 'latency'))
 
 
 async def minecraft_ping(host, port, loop: asyncio.AbstractEventLoop = None) -> PingResult:
+    if loop is None:
+        loop = asyncio.get_event_loop()
+
     conn = MinecraftProtocol(loop)
     await loop.create_connection(lambda: conn, host, port)
 

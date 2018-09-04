@@ -2,3 +2,4 @@
 venv/
 __pychache__/
 aiomc/__pycache__/
+aiomc.egg-info/
