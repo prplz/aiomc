@@ -1,5 +1,5 @@
 import random
-from ipaddress import IPv4Address
+from ipaddress import AddressValueError, IPv4Address
 from typing import Tuple
 
 from dns import resolver
@@ -27,7 +27,7 @@ def resolve_minecraft_server(address) -> Tuple[str, int]:
             pass
     try:
         IPv4Address(host)
-    except ValueError:
+    except AddressValueError:
         answer = random.choice(resolver.query(host, 'A'))
         host = answer.address
     return host, port
