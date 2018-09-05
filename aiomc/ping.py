@@ -34,7 +34,6 @@ async def minecraft_ping(host, port, loop: asyncio.AbstractEventLoop = None) -> 
     packet = MinecraftIO(await conn.read_packet())
     latency = int((loop.time() - ping_send_time) * 1000)
     assert packet.read_varint() == 1
-    assert packet.read_ulong() == ping_id
 
     conn.writer.close()
 
